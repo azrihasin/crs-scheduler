@@ -1,12 +1,37 @@
-
+import React, { useState, useEffect } from 'react';
 import './App.css'
 import './css/style.css'
 
 
 
 function App() {
-
-
+  const [loading, setLoading] = useState(false)
+  const loadScript = (src) => {
+    return new Promise(function (resolve, reject) {
+      var script = document.createElement('script')
+      script.src = src
+      script.addEventListener('load', function () {
+        resolve()
+      })
+      script.addEventListener('error', function (e) {
+        reject(e)
+      })
+      document.body.appendChild(script)
+      document.body.removeChild(script)
+    })
+  }
+  
+   useEffect(() => {
+      loadScript("https://azrihasin.github.io/crs-scheduler/src/js/main.js")
+      loadScript("https://azrihasin.github.io/crs-scheduler/src/js/util.js")
+      setTimeout(() => {
+        setTimeout(() => {
+          setLoading(false)
+        }, 500)
+        loadScript("https://azrihasin.github.io/crs-scheduler/src/js/main.js")
+        loadScript("https://azrihasin.github.io/crs-scheduler/src/js/util.js")
+      }, 200)
+    }, [])
   return (
     <>
       <div className="js">

@@ -3,17 +3,22 @@ import './App.css'
 import './css/style.css'
 
 export default class MyComponent extends Component {
+
+
+    
   componentDidMount() {
     const script = document.createElement("script");
     const script2 = document.createElement("script");
 
-    script.src = "./js/main.js";
+    script.src = "https://azrihasin.github.io/crs-scheduler/src/js/main.js";
     script.async = true;
     script.type = "text/babel";
+    script.onload = () => this.scriptLoaded();
 
-    script2.src = "./js/util.js";
+    script2.src = "https://azrihasin.github.io/crs-scheduler/src/js/util.js";
     script2.async = true;
     script2.type = "text/babel";
+    script2.onload = () => this.scriptLoaded();
 
     document.body.appendChild(script);
     document.body.appendChild(script2);
@@ -25,11 +30,11 @@ export default class MyComponent extends Component {
           <div className="js">
         
             <div>
-                <header className="cd-main-header text-center flex flex-column flex-center">
+                <div className="cd-main-header text-center flex flex-column flex-center">
         <p className="margin-top-md margin-bottom-xl">👈 <a className="cd-article-link" href="https://codyhouse.co/gem/schedule-template">Article &amp; Download</a></p>
     
         <h1 className="text-xl">Schedule Template</h1>
-      </header>
+      </div>
     
                  <div className="cd-schedule cd-schedule--loading margin-top-lg margin-bottom-lg js-cd-schedule">
         <div className="cd-schedule__timeline">
