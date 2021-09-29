@@ -1,5 +1,3 @@
-
-
 (function() {
 	// Schedule Template - by CodyHouse.co
 	function ScheduleTemplate( element ) {
@@ -371,4 +369,3 @@
 		};
 	}
 }());
-

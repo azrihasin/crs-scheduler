@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "axios": "^0.21.4",
     "babel-preset-react": "^6.24.1",
     "bootstrap-scss": "^5.1.1",
     "codyhouse-framework": "^3.0.1",
@@ -13,8 +14,10 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
+    "react-hook-form": "^7.16.1",
     "react-script-tag": "^1.1.2",
     "react-scripts": "4.0.3",
+    "react-svg-spinner": "^1.0.4",
     "sass": "^1.42.0",
     "web-vitals": "^1.0.1"
   },
