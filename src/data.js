@@ -1,4 +1,4 @@
-export const data = {
+export const info = {
   friday: [
     {
       code: 'INFO 4993',
