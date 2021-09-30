@@ -52,8 +52,6 @@ function App() {
 
   const changeFormat = (time, format) => {
 
-    console.log(time)
-    console.log(format)
     var new_time;
 
     //change the format time if pm
@@ -74,12 +72,17 @@ function App() {
       new_time = time
     }
 
-    console.log( new_time)
-
     return new_time
   }
 
-  // const arr = changeFormat(data)
+  const decideEvent = (event) => {
+
+    var a = event.split('-')
+
+    if(parseInt(a[1])>4){
+      
+    }
+  }
 
   useEffect(() => {
     setData(info)
@@ -215,10 +218,13 @@ function App() {
                               data-start={changeFormat(p.start_time,p.time_format)}
                               data-end={changeFormat(p.end_time,p.time_format)}
                               data-content="event-abs-circuit"
-                              data-event="event-1"
+                              data-event={p.event}
                               href="#0"
                             >
-                              <em className="cd-schedule__name">{p.code}</em>
+                              <p style={{fontSize: '0.9rem',color:'black'}}>{p.code} - Section {p.section} </p>
+                              <em className="cd-schedule__name">{p.name}</em>
+                             
+                  
                             </a>
                           </li>
                         ))
@@ -232,55 +238,26 @@ function App() {
                     </div>
 
                     <ul>
-                      <li className="cd-schedule__event">
-                        <a
-                          data-start="10:00"
-                          data-end="11:00"
-                          data-content="event-rowing-workout"
-                          data-event="event-2"
-                          href="#0"
-                        >
-                          <em className="cd-schedule__name">Rowing Workout</em>
-                        </a>
-                      </li>
-
-                      <li className="cd-schedule__event">
-                        <a
-                          data-start="11:30"
-                          data-end="13:00"
-                          data-content="event-restorative-yoga"
-                          data-event="event-4"
-                          href="#0"
-                        >
-                          <em className="cd-schedule__name">
-                            Restorative Yoga
-                          </em>
-                        </a>
-                      </li>
-
-                      <li className="cd-schedule__event">
-                        <a
-                          data-start="13:30"
-                          data-end="15:00"
-                          data-content="event-abs-circuit"
-                          data-event="event-1"
-                          href="#0"
-                        >
-                          <em className="cd-schedule__name">Abs Circuit</em>
-                        </a>
-                      </li>
-
-                      <li className="cd-schedule__event">
-                        <a
-                          data-start="15:45"
-                          data-end="16:45"
-                          data-content="event-yoga-1"
-                          data-event="event-3"
-                          href="#0"
-                        >
-                          <em className="cd-schedule__name">Yoga Level 1</em>
-                        </a>
-                      </li>
+                    {data == null ? (
+                        <div> </div>
+                      ) : (
+                        data.tuesday.map((p) => (
+                          <li className="cd-schedule__event">
+                            <a
+                              data-start={changeFormat(p.start_time,p.time_format)}
+                              data-end={changeFormat(p.end_time,p.time_format)}
+                              data-content="event-abs-circuit"
+                              data-event={p.event}
+                              href="#0"
+                            >
+                              <p style={{fontSize: '0.9rem',color:'black'}}>{p.code} - Section {p.section} </p>
+                              <em className="cd-schedule__name">{p.name}</em>
+                             
+                  
+                            </a>
+                          </li>
+                        ))
+                      )}
                     </ul>
                   </li>
 
